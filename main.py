@@ -4,30 +4,29 @@ from modules import EncryptDecryptProcess
 
 
 def main() -> None:
-    def main() -> None:
-        """
-        Main function that encrypts or decrypts a file using AES in CBC mode.
-        The operation mode (encryption or decryption) and the files to process are specified via command-line arguments.
+    """
+    Main function that encrypts or decrypts a file using AES in CBC mode.
+    The operation mode (encryption or decryption) and the files to process are specified via command-line arguments.
 
-        Command-line parameters:
-            -m, --mode : execution mode, 'encrypt' to encrypt or 'decrypt' to decrypt a file
-            -i, --input : path to the file to be processed (to encrypt or decrypt)
-            -o, --output : path where the encrypted or decrypted file will be saved
-            -k, --key : path to the file containing the decryption key (only for 'decrypt')
-            -s, --size : size of the AES key in bits (128 by default, 192 or 256), only for 'encrypt'
-        """
+    Command-line parameters:
+        -m, --mode : execution mode, 'encrypt' to encrypt or 'decrypt' to decrypt a file
+        -i, --input : path to the file to be processed (to encrypt or decrypt)
+        -o, --output : path where the encrypted or decrypted file will be saved
+        -k, --key : path to the file containing the decryption key (only for 'decrypt')
+        -s, --size : size of the AES key in bits (128 by default, 192 or 256), only for 'encrypt'
+    """
 
-        parser = argparse.ArgumentParser(description="Encrypt / Decrypt a file with AES algorithm in CBC mode")
-        parser.add_argument("-m", "--mode", type=str, choices=["encrypt", "decrypt"], required=True,
-                            help="Execution mode: 'encrypt' to encrypt, 'decrypt' to decrypt a file")
-        parser.add_argument("-i", "--input", type=str, required=True,
-                            help="Path to the file to be processed (to encrypt or decrypt depending on the selected mode)")
-        parser.add_argument("-o", "--output", type=str, required=True,
-                            help="Path where the encrypted or decrypted file will be saved")
-        parser.add_argument("-k", "--key", type=str, required=False,
-                            help="Path to the file containing the decryption key (necessary only in 'decrypt' mode)")
-        parser.add_argument("-s", "--size", type=int, choices=[128, 192, 256], default=128, required=False,
-                            help="Size of the key used by AES in bits (128 by default, 192, 256, used only in 'encrypt' mode)")
+    parser = argparse.ArgumentParser(description="Encrypt / Decrypt a file with AES algorithm in CBC mode")
+    parser.add_argument("-m", "--mode", type=str, choices=["encrypt", "decrypt"], required=True,
+        help="Execution mode: 'encrypt' to encrypt, 'decrypt' to decrypt a file")
+    parser.add_argument("-i", "--input", type=str, required=True,
+        help="Path to the file to be processed (to encrypt or decrypt depending on the selected mode)")
+    parser.add_argument("-o", "--output", type=str, required=True,
+        help="Path where the encrypted or decrypted file will be saved")
+    parser.add_argument("-k", "--key", type=str, required=False,
+        help="Path to the file containing the decryption key (necessary only in 'decrypt' mode)")
+    parser.add_argument("-s", "--size", type=int, choices=[128, 192, 256], default=128, required=False,
+        help="Size of the key used by AES in bits (128 by default, 192, 256, used only in 'encrypt' mode)")
 
     args = parser.parse_args()
     mode: str = args.mode

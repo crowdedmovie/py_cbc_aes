@@ -7,6 +7,7 @@ def save_encrypted_file(file_path: str, iv: bytes, encrypted_blocks: list[bytes]
 
 
 def save_decrypted_file(file_path: str, decrypted_blocks: list[bytes]) -> None:
+    # TODO : fix decryption process, file.write returns type error when encrypt file is 16 bytes
     with open(file_path, 'wb') as file:
         for block in decrypted_blocks:
             file.write(block)
