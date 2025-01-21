@@ -42,6 +42,8 @@ def main() -> None:
         EncryptDecryptProcess.encrypt_file(input_file_path, output_file_path, key_size, block_size)
     elif mode == "decrypt":
         EncryptDecryptProcess.decrypt_file(input_file_path, output_file_path, key_file_path)
+    # TODO : implements test functions to validate encryption and decryption
+    #  Compare results with known aes-cbc data reference
 
     end_time: float = time.perf_counter()
     execution_time: float = (end_time - start_time) * 1000000
