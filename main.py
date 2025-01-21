@@ -14,6 +14,13 @@ def main() -> None:
         -o, --output : path where the encrypted or decrypted file will be saved
         -k, --key : path to the file containing the decryption key (only for 'decrypt')
         -s, --size : size of the AES key in bits (128 by default, 192 or 256), only for 'encrypt'
+
+    Example:
+    Encrypting a file:
+        python main.py -m encrypt -i example.txt -o example.enc -s 256
+
+    Decrypting a file:
+        python main.py -m decrypt -i example.enc -o example_dec.txt -k example_key.bin
     """
 
     parser = argparse.ArgumentParser(description="Encrypt / Decrypt a file with AES algorithm in CBC mode")
